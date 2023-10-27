@@ -3,6 +3,7 @@ import { FC } from "react";
 import SignInButton from "./SignInButton";
 import { getAuthSession } from "@/lib/nextauth";
 import UserAccountNav from "./UserAccountNav";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface NavbarProps {}
 
@@ -14,16 +15,20 @@ const Navbar: FC<NavbarProps> = async ({}) => {
       <div className="flex items-center justify-between h-full gap-2 px-8 mx-auto max-w-7xl">
         {/* logo */}
         <Link href="/" className="flex items-center gap-2">
-          <p className="rounded-lg border-2 border-b-4 border-r-4 border-black px-2 py-1 text-xl font-bold transition-all hover:-translate-y-[2px] md:block dark:border-white">
+          <p className="rounded-lg border-2 border-b-4 border-r-4 border-black px-2 py-1 text-xl font-bold transition-all hover:-translate-y-[2px] md:block dark:border-white dark:text-white9">
             Kodekan
           </p>
         </Link>
         <div className="flex items-center">
-          {session?.user ? (
-            <UserAccountNav user={session.user} />
-          ) : (
-            <SignInButton text="Masuk" />
-          )}
+          {" "}
+          <ThemeToggle className="mr-3" />
+          <div className="flex items-center">
+            {session?.user ? (
+              <UserAccountNav user={session.user} />
+            ) : (
+              <SignInButton text="Masuk" />
+            )}
+          </div>
         </div>
       </div>
     </div>

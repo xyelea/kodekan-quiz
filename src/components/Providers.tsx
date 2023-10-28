@@ -10,13 +10,9 @@ import { type ThemeProviderProps } from "next-themes/dist/types";
 
 const Providers = ({ children, ...props }: ThemeProviderProps) => {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      {...props}>
-      <SessionProvider>{children}</SessionProvider>;
-    </ThemeProvider>
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+      <SessionProvider>{children}</SessionProvider>
+    </NextThemesProvider>
   );
 };
 

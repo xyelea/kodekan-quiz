@@ -43,7 +43,9 @@ const UserAccountNav: FC<UserAccountNavProps> = ({
 
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href="/">Nyaa</Link>
+          <Link className="text-zinc-700 cursor-pointer" href="/">
+            Dashboard
+          </Link>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />

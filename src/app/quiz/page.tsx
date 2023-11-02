@@ -1,9 +1,16 @@
-import { FC } from "react";
+import QuizCreation from "@/components/QuizCreation";
+import { getAuthSession } from "@/lib/nextauth";
+import { redirect } from "next/navigation";
+import React from "react";
 
-interface pageProps {}
+type Props = {};
 
-const page: FC<pageProps> = ({}) => {
-  return <div>quiz</div>;
+const QuizPage = async (props: Props) => {
+  const session = await getAuthSession();
+  if (!session) {
+    return redirect("/");
+  }
+  return <QuizCreation />;
 };
 
-export default page;
+export default QuizPage;
